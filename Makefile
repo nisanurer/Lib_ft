@@ -43,7 +43,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar -rc $(NAME) $(OBJ)
+	ar -rcs $(NAME) $(OBJ)
 
 clean:
 	rm -f $(OBJ)
