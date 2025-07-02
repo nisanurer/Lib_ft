@@ -6,28 +6,37 @@
 /*   By: nier <nier@student.42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 15:31:36 by nier              #+#    #+#             */
-/*   Updated: 2025/06/30 15:43:22 by nier             ###   ########.tr       */
+/*   Updated: 2025/07/02 19:39:44 by nier             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static char	*ft_empty_str(void)
+{
+	char	*empty;
+
+	empty = (char *)malloc(1);
+	if (!empty)
+		return (NULL);
+	empty[0] = '\0';
+	return (empty);
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
 	size_t	s_len;
+	size_t	i;
 	char	*substr;
 
 	if (!s)
 		return (NULL);
-	s_len = 0;
-	while (s[s_len])
-		s_len++;
+	s_len = ft_strlen(s);
 	if (start >= s_len)
-		return (malloc(1));
+		return (ft_empty_str());
 	if (len > s_len - start)
 		len = s_len - start;
-	substr = (char *)malloc(sizeof(char) * (len + 1));
+	substr = (char *)malloc(len + 1);
 	if (!substr)
 		return (NULL);
 	i = 0;
